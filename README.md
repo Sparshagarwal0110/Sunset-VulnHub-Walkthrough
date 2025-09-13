@@ -1,6 +1,6 @@
 # Sunset — VulnHub Walkthrough
 
-> **Machine:** Sunset (VulnHub)
+> **Machine:** [Sunset (VulnHub)](https://www.vulnhub.com/entry/sunset-1,339/)
 > **Author:** Whitecr0wz
 > **Difficulty:** medium
 > **Tested on:** Linux - 13/09/2025
