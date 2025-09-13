@@ -54,7 +54,7 @@ Completed the **Sunset** vulnerable machine. In this machine, our target is to f
 
 A short ARP discovery confirmed the target host on the local network.
 
-> See screenshot: `assets/2.png` (ARP scan output).
+> See screenshot: [assets/2.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/2.png) (ARP scan output).
 
 **Port scan (command used):**
 
@@ -67,13 +67,13 @@ Important open services observed from the scan:
 * `21/tcp` — FTP (pyftpdlib 1.5.5) — **anonymous FTP login allowed**
 * `22/tcp` — SSH (OpenSSH 7.9p1)
 
-> See screenshot: `assets/3.png` (nmap output showing FTP/SSH and anonymous FTP file listing).
+> See screenshot: [assets/3.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/3.png) (nmap output showing FTP/SSH and anonymous FTP file listing).
 
 ### 3.2 Retrieving useful files from FTP
 
 Because anonymous FTP was allowed, I listed and downloaded files from the FTP root. The directory listing showed a file named `backup` (owned by root) which I downloaded for inspection.
 
-> See screenshot (partial FTP listing included in nmap output): `assets/4.png`.
+> See screenshot (partial FTP listing included in nmap output): [assets/4.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/4.png).
 
 After saving `backup` locally, I inspected it and found a password hash (sha512crypt) for the `sunset` user. I moved that hash into a wordlist file for cracking.
 
@@ -87,7 +87,7 @@ john crack
 
 `john` successfully cracked the password: **cheer14**.
 
-> See screenshot: `assets/6.png` (john output showing cracked password).
+> See screenshot: [assets/6.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/6.png) (john output showing cracked password).
 
 With the cracked credentials I SSH'd into the machine:
 
@@ -98,7 +98,7 @@ ssh sunset@192.168.29.242
 
 This gave an interactive shell as user `sunset`.
 
-> See screenshot: `assets/7.png` (VM / login prompt and later shell activity).
+> See screenshot: [assets/7.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/7.png) (VM / login prompt and later shell activity).
 
 ### 3.4 Privilege escalation
 
@@ -109,7 +109,7 @@ sudo -l
 # (root) NOPASSWD: /usr/bin/ed
 ```
 
-> See screenshot: `assets/8.png` (sudo -l output snippet).
+> See screenshot: [assets/8.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/8.png) (sudo -l output snippet).
 
 `ed` is an editor that can be abused to spawn a root shell when executed with elevated privileges. Using a known technique with `ed` I spawned a root shell and read the root flag.
 
@@ -129,15 +129,15 @@ cat /root/root.txt
 
 ## 4) Screenshots (findings) (findings)
 
-1. `assets/1.png` — sunset machine.
-2. `assets/2.png` — netdiscover scanning.
-3. `assets/3.png` — important nmap results (open ports/services).
-4. `assets/4.png` — ftp login.
-5. `assets/5.png` — hashed credential file.
-6. `assets/6.png` — crack hashed credential.
-7. `assets/7.png` — ssh login.
-8. `assets/8.png` — sudoers permission.
-9. `assets/9.png` — gaining root privilege.
+1. [assets/1.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/1.png) — sunset machine.
+2. [assets/2.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/2.png) — netdiscover scanning.
+3. [assets/3.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/3.png) — important nmap results (open ports/services).
+4. [assets/4.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/4.png) — ftp login.
+5. [assets/5.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/5.png) — hashed credential file.
+6. [assets/6.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/6.png) — crack hashed credential.
+7. [assets/7.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/7.png) — ssh login.
+8. [assets/8.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/8.png) — sudoers permission.
+9. [assets/8.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/8.png) — gaining root privilege.
 
 ---
 
