@@ -54,7 +54,7 @@ Completed the **Sunset** vulnerable machine. In this machine, our target is to f
 
 A short ARP discovery confirmed the target host on the local network.
 
-> See screenshot: [assets/2.png](https://github.com/Sparshagarwal0110/Sunset-VulnHub-Walkthrough/blob/main/assets/2.png) (ARP scan output).
+> See screenshot: ![Screenshot](assets/2.png) (ARP scan output).
 
 **Port scan (command used):**
 
