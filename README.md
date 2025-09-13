@@ -87,7 +87,7 @@ john crack
 
 `john` successfully cracked the password: **cheer14**.
 
-> See screenshot: ![Screenshot](assets/5.png) (john output showing cracked password).
+> See screenshot: ![Screenshot](assets/6.png) (john output showing cracked password).
 
 With the cracked credentials I SSH'd into the machine:
 
