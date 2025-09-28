@@ -127,7 +127,7 @@ cat /root/root.txt
 
 ---
 
-## 4) Screenshots (findings) (findings)
+## 4) Screenshots (findings)
 
 1. ![Screenshot](assets/1.png) — sunset machine.
 2. ![Screenshot](assets/2.png) — netdiscover scanning.
